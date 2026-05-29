@@ -81,8 +81,6 @@ The main output directories include:
 
 ## Author
 
-![Divyansh Dhadhich](https://github.com/D1VYANSHx7877.png?size=200)
-
 ### Divyansh Dhadhich
 
 Aspiring Data Scientist & Machine Learning Engineer focused on building practical AI and ML solutions using Python, SQL, Machine Learning, Deep Learning, and future Generative AI technologies.
