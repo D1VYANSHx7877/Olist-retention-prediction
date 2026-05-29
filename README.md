@@ -1,90 +1,208 @@
 # Olist Retention Prediction
 
-A production-style machine learning project for predicting customer retention in the Olist e-commerce ecosystem. The repository combines SQL-based feature engineering, exploratory analysis, and model benchmarking to identify customers most likely to churn and support targeted retention campaigns.
+A production-style machine learning project focused on predicting customer retention within the Olist e-commerce ecosystem. This repository combines SQL-based feature engineering, exploratory data analysis (EDA), and machine learning model benchmarking to identify customers at risk of churn and support targeted retention strategies.
 
-![Retention analysis overview](outputs/eda/retained_distribution.png)
+![Retention Analysis Overview](outputs/eda/retained_distribution.png)
 
-## Project Overview
+---
 
-This project focuses on building a practical retention-risk scoring workflow using:
+# Project Overview
 
-- SQL feature engineering from the Olist relational dataset
-- Python-based EDA and preprocessing
-- Classification models for churn/retention prediction
-- Business-oriented evaluation using recall, ROC-AUC, and F1-score
+This project implements an end-to-end customer retention prediction workflow using the Olist relational e-commerce dataset. The pipeline covers:
 
-## Why this project matters
+- SQL-based feature engineering
+- Exploratory data analysis and preprocessing
+- Customer retention labeling
+- Machine learning model training and evaluation
+- Business-oriented performance analysis
 
-Retention is one of the most valuable business levers in e-commerce. Even a small improvement in customer retention can generate substantial revenue gains through repeat purchases, better customer lifetime value, and more efficient campaign targeting.
+The objective is to help businesses proactively identify customers likely to churn and improve retention through data-driven decision-making.
 
-## Key Highlights
+---
 
-- End-to-end churn/retention prediction pipeline
-- SQL-driven feature generation with a 365-day snapshot window
-- Model comparison across Logistic Regression, Random Forest, and XGBoost
-- Visual outputs stored in the `outputs/` folder for easy inspection and presentation
+# Business Problem
 
-## Repository Structure
+Customer retention is one of the most impactful growth levers in e-commerce. Acquiring new customers is significantly more expensive than retaining existing ones, making retention prediction critical for:
+
+- Personalized marketing campaigns
+- Customer lifetime value optimization
+- Churn reduction strategies
+- Revenue growth through repeat purchases
+
+This project demonstrates how data science and machine learning can be applied to solve a practical business problem using real-world transactional data.
+
+---
+
+# Key Features
+
+- End-to-end retention prediction pipeline
+- SQL-driven customer feature engineering
+- 365-day retention snapshot methodology
+- Exploratory data analysis with visual reporting
+- Multiple model benchmarking and comparison
+- Business-focused evaluation metrics
+- Organized output artifacts for presentation and analysis
+
+---
+
+# Tech Stack
+
+## Languages & Tools
+
+- Python
+- SQL
+- Jupyter Notebook
+
+## Libraries
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- xgboost
+- imbalanced-learn
+
+---
+
+# Repository Structure
 
 ```text
 .
 ├── data/
-│   ├── processed/          # Engineered customer feature dataset
-│   └── raw/                # Original Olist SQL dump
+│   ├── processed/              # Engineered customer feature dataset
+│   └── raw/                    # Original Olist SQL dump
+│
 ├── notebook/
 │   └── olist_retention_prediction.ipynb
+│
 ├── outputs/
-│   ├── eda/                # Exploratory charts
-│   ├── model_comparison/   # Model benchmark visuals
-│   ├── roc_curves/         # ROC / PR visualizations
-│   └── confusion_matrices/ # Confusion matrices
+│   ├── eda/                    # Exploratory analysis visualizations
+│   ├── model_comparison/       # Model benchmark charts
+│   ├── roc_curves/             # ROC and Precision-Recall curves
+│   └── confusion_matrices/     # Confusion matrix visualizations
+│
 ├── sql/
 │   ├── feature_engineering.sql
 │   └── SCHEMA_NOTES.md
+│
 └── temp_cell_40.txt
 ```
 
-## Data & SQL Pipeline
+---
 
-The SQL pipeline in `sql/feature_engineering.sql` creates a customer-level feature table using:
+# Data Pipeline & Feature Engineering
 
-- payment aggregation
-- review aggregation
-- product and order behavior summaries
-- retention labels based on future purchase activity
+The SQL pipeline located in:
 
-This produces the final feature file used in the notebook:
+```sql
+sql/feature_engineering.sql
+```
 
-- `data/processed/customer_features.csv`
+creates a customer-level feature dataset using:
 
-## Model Insights
+- Payment aggregations
+- Review score aggregations
+- Order behavior summaries
+- Product purchasing patterns
+- Retention labels based on future purchase activity
 
-The notebook compares multiple models and saves visual artifacts for interpretation and reporting.
+The final processed dataset generated by the pipeline:
 
-![Model comparison dashboard](outputs/model_comparison/metrics_comparison.png)
+```text
+data/processed/customer_features.csv
+```
 
-## How to Run
+---
 
-1. Install dependencies:
-   `pip install pandas numpy matplotlib seaborn scikit-learn xgboost imbalanced-learn nbformat nbclient`
-2. Open and run the notebook in `notebook/olist_retention_prediction.ipynb` using Jupyter or VS Code.
-3. If you want to re-generate the visual outputs, execute the notebook cells in order.
+# Machine Learning Models
 
-## Output Artifacts
+The project benchmarks multiple classification models for retention prediction, including:
 
-The main output directories include:
+- Logistic Regression
+- Random Forest Classifier
+- XGBoost Classifier
 
-- `outputs/eda/` — retention distributions, RFM patterns, quality comparison
-- `outputs/model_comparison/` — evaluation charts and metric comparisons
-- `outputs/roc_curves/` — ROC and precision-recall visualizations
-- `outputs/confusion_matrices/` — model error diagnostics
+Evaluation metrics include:
+
+- Recall
+- F1-Score
+- ROC-AUC
+- Precision-Recall Analysis
+
+---
+
+# Exploratory Analysis & Visual Outputs
+
+The notebook generates visual artifacts for model interpretation and business reporting.
+
+![Model Comparison Dashboard](outputs/model_comparison/metrics_comparison.png)
+
+Generated outputs include:
+
+- Retention distribution analysis
+- RFM-style behavioral insights
+- Feature relationship analysis
+- ROC curves
+- Precision-Recall curves
+- Confusion matrices
+- Model performance comparison charts
+
+---
+
+# How to Run
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/D1VYANSHx7877/Olist-retention-prediction.git
+cd Olist-retention-prediction
+```
+
+## 2. Install Dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn xgboost imbalanced-learn nbformat nbclient
+```
+
+## 3. Run the Notebook
+
+Open and execute:
+
+```text
+notebook/olist_retention_prediction.ipynb
+```
+
+using Jupyter Notebook or VS Code.
+
+---
+
+# Output Artifacts
+
+| Directory | Description |
+|---|---|
+| `outputs/eda/` | Exploratory analysis visualizations |
+| `outputs/model_comparison/` | Model benchmark charts |
+| `outputs/roc_curves/` | ROC and Precision-Recall curves |
+| `outputs/confusion_matrices/` | Confusion matrix diagnostics |
+
+---
+
+# Future Improvements
+
+Potential future enhancements include:
+
+- Hyperparameter optimization
+- SHAP explainability integration
+- MLflow experiment tracking
+- Deployment using FastAPI or Streamlit
+- Real-time inference pipeline
+- Customer segmentation integration
+
+---
 
 ## Author
 
 ### Divyansh Dhadhich
 
 Aspiring Data Scientist & Machine Learning Engineer focused on building practical AI and ML solutions using Python, SQL, Machine Learning, Deep Learning, and future Generative AI technologies.
-
-## GitHub Repository Summary
-
-This repository is a complete, presentation-ready retention prediction project built for GitHub upload and portfolio sharing. It showcases real-world data science workflow design, SQL feature engineering, machine learning experimentation, and clear visual storytelling for stakeholders.
